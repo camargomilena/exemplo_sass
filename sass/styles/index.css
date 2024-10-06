@@ -1,0 +1,31 @@
+.button-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button-primary {
+  background-color: #f125e4;
+  color: #fff;
+}
+.button-primary:hover {
+  background: rgb(215, 57, 215);
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: #f125e4;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #b3b5b4;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}/*# sourceMappingURL=index.css.map */

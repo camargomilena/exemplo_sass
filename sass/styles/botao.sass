@@ -1,0 +1,19 @@
+
+// Herança
+%button-base {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .button-primary {
+    @extend %button-base;
+    background-color: $primaria;
+    color: #fff;
+    //agrupamento
+    &:hover{
+      background: rgb(215, 57, 215);
+    }
+  }
+  

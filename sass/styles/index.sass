@@ -1,0 +1,32 @@
+// Variáveis
+$primaria: #f125e4;
+$secundaria: #b3b5b4;
+$font-stack: Helvetica, sans-serif;
+
+@import './botao';
+
+// Mixin
+@mixin flexCenter($direcao) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direcao;
+}
+
+
+body {
+  font-family: $font-stack;
+  color: $primaria;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $secundaria;
+  border-radius: 10px;
+  @include flexCenter(column);
+}
+
+
+
