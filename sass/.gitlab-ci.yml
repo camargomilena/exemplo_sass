@@ -1,31 +1,18 @@
 name: syhunt test
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build:
-    runs-on: windows-latest  # Garantir que o job rode em Windows, necessário para executar o PowerShell
-
+    runs-on: [self-hosted, Windows, X64]
     steps:
       - uses: actions/checkout@v2
-
-      # Etapa para rodar o scan com a URL fornecida
-      - name: Start Dynamic Scan on URL
-        run: |
-          $MyWebsite = @{
-            target = 'https://reimagined-carnival-wrgr69g49wrvfgr5q-5500.app.github.dev/sass/'
-            pfcond = 'medium'
-            output = 'report.pdf'
-          }
-          Start-DynamicScan @MyWebsite
-
-      # Etapa para fazer upload do relatório gerado
-      - name: Upload Syhunt Report
+      - run: Start-CodeScan -pfcond 'medium' -output 'report.pdf'
+      - name: 'Syhunt Report'
         uses: actions/upload-artifact@v2
+        if: failure()
         with:
-          name: syhunt-report
-          path: report.pdf
-          if-no-files-found: error
+         name: syhunt-report
+         path: report.pdf
+         if-no-files-found: error
